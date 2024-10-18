@@ -1,0 +1,242 @@
+What is the syntax to initialize an array with NumPy?
+Answer: numpy.array( [ ] )
+
+Can you create a multi-dimensional array with NumPy?
+Answer: yes
+
+What statement would you use to print the type of a numpy array named ‘floats’?
+Answer: print(floats.dtype)
+What statement would you use to print the amount of dimensions of an array named ‘integers’?
+Answer: print(integers.ndim)
+
+You have a multidimensional array named ‘integers’ with three arrays inside. What value would be contained in the ndim attribute of the ‘integers’ array?
+Answer: 3
+
+What statement would you use to print the dimensions of an array named ‘integers’?
+Answer: print(integers.shape)
+
+You have a multidimensional array named ‘integers’ with three arrays all containing integers 1 and 2. What value would be contained in the shape attribute of the ‘integers’ array?
+Answer: (3, 2)
+What attribute will tell you how many elements are in an array?
+Answer: size
+
+What attribute will tell you how many bytes are required to store each element?
+Answer: itemsize
+What is the syntax to iterate through an multidimensional array named ‘integers’ using external iteration? Use column and row as a placeholder variables
+Answer:
+for row in integers:
+    for column in row:
+
+What is the syntax to iterate through a multidimensional array named ‘integers’ as a one dimensional array using external iteration? Use ‘var’ as variable placeholder
+Answer:
+for var in integers.flat:
+
+What is the syntax to create the following array using zero, ones, or full?
+[0., 0., 0., 0., 0.]
+Answer: numpy.zeros(5)
+
+What is the syntax to create the following array using zero, ones, or full?
+[[1, 1, 1, 1], [1, 1, 1, 1]]
+Answer: numpy.ones((2, 4), dtype=int)
+
+What is the syntax to create the following array using zero, ones, or full?
+[[13, 13, 13, 13, 13], [13, 13, 13, 13, 13], [13, 13, 13, 13, 13]]
+Answer: numpy.full((3, 5) 13)
+What numpy function do you use to create an array of an integer range?
+Answer: arange
+
+What is the syntax to create an array of an integer range from 0-5?
+Answer: numpy.arange(6)
+What is the syntax to create an array of a float range of 10 values from 0.0 to 5.0?
+Answer: numpy.linspace(0.0, 5.0, num=10)
+What is the syntax to create a integer range array from 1-20 and then convert it to a multidimensional array consisting of 4 rows and 5 columns? One line/statement only
+Answer:
+numpy.arange(1, 21).reshape(4, 5)
+Can you use arithmetic operators on an array?
+Answer: yes
+
+Write a statement to multiply every number in an array named ‘numbers’ by two.
+Answer:
+numbers * 2
+What is it called in element-wise arithmetic when an array is evaluated against a scalar (single value) and the value is treated as though it was an array of the same shape filled with that singular value?
+Answer:
+Broadcasting
+If you have two NumPy arrays, one of shape 3x4 and another of shape 3x5, can you perform arithmetic between the two?
+Answer: no
+
+If you have two NumPy arrays, one of shape 3x4 and another of shape 3x5, can you perform augmented assignment between the two?
+Answer: no
+Can you compare arrays with comparison operators?
+Answer: yes
+
+Can you compare arrays against a single value?
+Answer: yes
+When performing calculation methods in NumPy, by default do they calculate per row/column, or calculate the entire array?
+Answer: the entire array
+What is the syntax to perform a mean calculation method on just the first column of an array named ‘grades’?
+Answer:
+grades.mean(axis=0)
+
+When selecting an axis in an array calculation method, will it calculate for all the values in a row or column?
+Answer: column
+
+What refers to the group of functions that perform various element-wise operations on arrays or array-like objects?
+Answer: Universal Functions
+
+What is the slang word for Universal Functions?
+Answer: ufuncs
+
+Which of the following are examples of ufuncs? Choose all that are correct
+1. sqrt
+2. reshape
+3. add
+4. multiply
+5. arange
+Answer: sqrt, add, multiply
+
+Can you use broadcasting with universal functions?
+Answer: yes
+
+What is the syntax to multiply every element in an array name ‘grades’ by 5 with a NumPy ufunc?
+Answer: NumPy.multiply(grades, 5)
+
+Can you multiply two arrays with the shapes, (2, 3) and (1, 3)?
+Answer: yes
+What array method returns a new array object with a view of the original array object’s data?
+Answer: view
+What is the copy called that gets created when setting an array equal to another array’s view?
+Answer: shallow copy
+
+When creating a shallow copy of an array, you decide to change a value afterwards of the array that was copied. Does this value change in the duplicated array?
+Answer: yes (shallow copy’s only mirror the copied array)
+
+What is the copy called that gets created when setting an array equal to another array using the copy method?
+Answer: deep copy
+
+After creating a deep copy of an array, you decide to change a value in the original array. Does this value change in the duplicated array?
+Answer: no (deep copy’s create a new array from the copied array)
+What array method creates a deep copy of another array?
+Answer: copy()
+You have an array named ‘progress’ full of data that needs to be copied in it’s current state to a new array to create a sort of “check point” in your program to view later. The values of the original array WILL change but you want the values of the “check point” array to stay the same. What method would you use to copy the first array into a new “check point” array?
+Answer: copy() (this create a deep copy as opposed to a shallow)
+
+Can you use a deep copy on other object types?
+Answer: yes
+
+When using the reshape method on an array, does it create a shallow copy (view) or deep copy of the original array?
+Answer: shallow copy (view)
+
+When using the resize method on an array, does it create a shallow copy (view) or deep copy of the original array?
+Answer: deep copy
+
+You need to modify an array of shape (2, 3) to a shape of (1, 6) within the same variable. What array method should you use?
+Answer: resize()
+What array method creates a flattened deep copy of an array?
+Answer: flatten()
+
+What array method creates a flattened shallow copy of an array?
+Answer: ravel()
+What array attribute shows a transposed, or “flipped”, view of an array such that rows become columns and vice versa?
+Answer: T
+What two functions can be used to horizontally and vertically stack arrays?
+Answer: hstack, vstack
+What Python library is the most popular for handling the unique demands of data science like mixed data types, customized indexing, missing data, and data that’s not structured consistently so that it can be manipulated into forms for databases and data analysis packages you use?
+Answer: Pandas
+
+What refers to an enhanced one-dimensional array from the Pandas library?
+Answer: series
+
+What is the syntax to initialize a Pandas Series with values 1, 2, and 3?
+Answer: pandas.Series([1, 2, 3])
+How would you create a Pandas Series with three values that are all the integer, 5?
+Answer: pandas.Series(5, range(3))
+Pandas also contains many of the same methods as the statistics library. Which of the following are in both Pandas and statistics libraries?
+a) count
+b) mean
+c) min
+d) max
+e) std (standard deviation)
+f) All of the above
+
+Answer: f
+Which of the following statistics will return when calling Pandas describe method on a Series?
+a) count
+b) mean
+c) median
+d) mode
+e) min
+f) max
+g) std (standard deviation)
+h) variance
+i) quartiles
+
+Answer: a, b, e, f, g, i
+What keyword argument do you use when defining a Series to assign custom indices?
+Answer: index
+
+What is the syntax to create a Series with custom indices? Use blank lists
+Answer: pandas.Series([], index=[])
+Can you initialize a Series with a dictionary?
+Answer: yes
+
+When initializing a Series with a dictionary, how do the key-value pair’s line up with the element values and column title? (key, element | value, title or key, title | value, element)
+Answer: key, index | value, element
+How would you access an element of the Series ‘grades’, with the custom index of ‘Willy’ using square brackets?
+Answer: grades[’Willy’]
+
+How would you access an element of the Series ‘grades’, with the custom index of ‘Willy’ as an attribute?
+Answer: grades.Willy
+You have a Series of strings named ‘my_string’. How would you print a list of which value contains the letter ‘a’?
+Answer: print(my_string.str.contains('a')
+What refers to an enhance two-dimensional array from the Pandas library?
+Answer: DataFrame
+
+Each row in a DataFrame is a Series. True/False?
+Answer: True
+
+When creating a data frame, what two data types do you use to initialize it?
+Answer: dictionary and list
+
+You have a DataFrame named ‘grades’ with multiple columns with one having the index ‘Willy’, housing three values. How do you print just this column? Not the entire DataFrame
+Answer: grades[’Willy’] 
+What DataFrame attribute can you use to access a row by it’s label?
+Answer: loc
+
+Is it preferred to use loc or [ ] when accessing a DataFrame row?
+Answer: loc (because [ ] creates a copy of the data and produces a LogicError if attempting to modify it)
+What DataFrame attribute is used when trying to access a row by it’s zero-base integer index?
+Answer: iloc
+You cannot use slicing with DataFrames. True/False?
+Answer: False
+When slicing DataFrames with loc, is the high index inclusive or exclusive?
+Answer: inclusive
+
+When slicing DataFrames with iloc, is the high index inclusive or exclusive?
+Answer: exclusive
+What data type do you insert into loc and iloc when attempting to select individual rows/columns not in order?
+Answer: list
+What is the syntax to select a subset of a DataFrame up to the second row and column? Use iloc with ‘dataframe’, 0, and 1 as placeholder values/variables
+Answer: dataframe.iloc[[0, 1], [0, 1]]
+You have a dataframe named ‘grades’, and would like to select all the values that are greater than or equal to 90. How would you do so?
+Answer: grades[grades >= 90] 
+What is Pandas notation for a missing value?
+Answer: NaN
+What method would you use to get a single value from a DataFrame by it’s index?
+Answer: iat()
+
+What method would you use to get a single value from a DataFrame by it’s label?
+Answer: at()
+Can you use the describe method on DataFrames?
+Answer: yes
+
+What function can you use to customize the describe function?
+Answer: set_option()
+What function can you use to sort a DataFrame by its indicies?
+Answer: sort_index()
+What function argument combination can you use to sort a DataFrame by its columns?
+Answer: sort_index(axis=1)
+Sort the “Test1” row of a DataFrame named “grades” in descending order.
+Answer:
+grades.sort_values(by='Test1', axis=1, ascending=False)
+What argument can you pass to either DataFrame sorting methods to prevent creating a copy of the data and sorting it within the DataFrame?
+Answer: inplace=True
