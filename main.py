@@ -135,7 +135,7 @@ def fc_formatter():
     # Remove blank items from the individual notes
     indiv_notes = list(filter(lambda x: x != "", indiv_notes))
 
-    # Remove "Answer: ", seperate Def/Term by tab, seperate each 'flashcard' by newline
+    # Remove "Answer: ", seperate Def/Term by tab, seperate each 'flashcard' by newline, swap term and def
     for i, x in enumerate(indiv_notes):
         if "answer:" in x.lower():
             ### Old Version ###
@@ -145,11 +145,18 @@ def fc_formatter():
             # indiv_notes[i] = indiv_notes[i].replace("Answer:", "Definition:")
             # indiv_notes[i] = indiv_notes[i] + '\n'
 
-            indiv_notes[i] = indiv_notes[i].replace("answer: ", "")
-            indiv_notes[i] = indiv_notes[i].replace("Answer: ", "")
-            indiv_notes[i] = indiv_notes[i] + '\n'
-        else:
-            indiv_notes[i] = indiv_notes[i] + '\t'
+            answer_note = indiv_notes[i]
+            term_note = indiv_notes[i - 1]
+
+            # Format notes
+            answer_note = answer_note.replace("answer: ", "")
+            answer_note = answer_note.replace("Answer: ", "")
+            answer_note = answer_note + '\t'
+            term_note = term_note + '\n'
+
+            # Swap Term and Def
+            indiv_notes[i] = term_note
+            indiv_notes[i - 1] = answer_note
 
     # Join list into hrd (human-readable data) and copy to clipboard
     formatted_notes = ''.join(map(str, indiv_notes))
