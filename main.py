@@ -124,8 +124,10 @@ def fc_formatter():
         usable for Quizlet's "AI Note Creator"
     '''
     # Read/Open notes text file
-    f = open("notes.txt", "r", encoding="utf8")
-    all_notes = f.read()
+    all_notes = None
+
+    with open("notes.txt", "r", encoding="utf8") as notes:
+        all_notes = notes.read()
 
     # Split notes by enters
     indiv_notes = all_notes.split("\n")
@@ -133,16 +135,24 @@ def fc_formatter():
     # Remove blank items from the individual notes
     indiv_notes = list(filter(lambda x: x != "", indiv_notes))
 
-    # Add "Term:" to terms and change "Answer:" to "Definitiion:"
+    # Remove "Answer: ", seperate Def/Term by tab, seperate each 'flashcard' by newline
     for i, x in enumerate(indiv_notes):
         if "answer:" in x.lower():
-            indiv_notes[i - 1] = "Term: " + indiv_notes[i - 1]
-            indiv_notes[i] = indiv_notes[i].replace("answer:", "Definition:")
-            indiv_notes[i] = indiv_notes[i].replace("Answer:", "Definition:")
+            ### Old Version ###
+            # Add "Term:" to terms and change "Answer:" to "Definitiion:"
+            # indiv_notes[i - 1] = "Term: " + indiv_notes[i - 1]
+            # indiv_notes[i] = indiv_notes[i].replace("answer:", "Definition:")
+            # indiv_notes[i] = indiv_notes[i].replace("Answer:", "Definition:")
+            # indiv_notes[i] = indiv_notes[i] + '\n'
+
+            indiv_notes[i] = indiv_notes[i].replace("answer: ", "")
+            indiv_notes[i] = indiv_notes[i].replace("Answer: ", "")
             indiv_notes[i] = indiv_notes[i] + '\n'
+        else:
+            indiv_notes[i] = indiv_notes[i] + '\t'
 
     # Join list into hrd (human-readable data) and copy to clipboard
-    formatted_notes = '\n'.join(map(str, indiv_notes))
+    formatted_notes = ''.join(map(str, indiv_notes))
     pyclip.copy(formatted_notes)
 
 main()
